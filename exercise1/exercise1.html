@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise one Dom</title>
+    <style>
+        #first,#second,#third{
+            border : 1px solid blue;
+            padding : 10px; 
+            margin : 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1> DOM and Event Handling </h1>
+    <div id="first">first</div>
+    <div id="second">second</div>
+    <div id="third">third</div>
+    <button id = "btn" type = "button" >Click me </button>
+    <script lang="javascript">
+        document.getElementById("first").style.backgroundColor = "red";    
+        document.getElementById("second").style.backgroundColor = "blue";    
+        document.getElementById("third").style.backgroundColor = "pink";    
+        
+        let divs = document.querySelectorAll("div");
+        function changeColorOndivs() {
+            divs.forEach(div => {
+                div.style.backgroundColor = getRandomColor();
+            });
+        }
+
+        function getRandomColor() {
+            let letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        document.getElementById("btn").addEventListener("click", changeColorOndivs);
+    </script>
+    </script>
+</body>
+</html>
